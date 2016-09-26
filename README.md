@@ -1,6 +1,6 @@
 # AVR Disco Bus
 
-A versatile AVR/Arduino library for communicating on multidrop master/slave bus, like RS485.
+A versatile AVR/Arduino library for communicating on a multidrop master/slave bus, like RS485.
 Put simply, it's an easy way to communication with a lot of devices over a pair of twisted wires. 
 
 You can read more about the Disco Bus [protocol spec here](https://github.com/jgillick/Disco-Bus-Protocol)
