@@ -8,7 +8,7 @@ You can read more about the Disco Bus [protocol spec here](https://github.com/jg
 ## Implementation Quickstart
 
 This is the most basic master/server setup where the slave node address is known and master
-just sends messages. (see the [simple example](examples/01_simple))
+just sends messages to it. (see the [simple example](examples/01_simple))
 
 ![Simple Demo](examples/diagrams/serial-simple.png?raw=true)
 
@@ -47,21 +47,17 @@ master.finishMessage();
 
 ### Explanation
 
-Both master and slave nodes need a way to communicate to each other. So the first thing you need to do
-is initialize a data object. In this case `DiscobusDataUart` communicates over the main UART line.
-There's also a `DiscobusData485`, which can be used to communicate via RS485 transceivers. You can
-easily create your own data class by extending `DiscobusData`.
+The `DiscobusDataUart` object is what is used to facilitate communication on the wire,
+in this case over the standard Rx/Tx UART. Once this is created, `DiscobusMaster` and 
+`DiscobusSlave` use it to receive, parse and send messages to each other.
 
-The rest is probably self explanatory. The slave nodes will need to call the `read()` method regularly
-in order to read new bytes from the data source. When a full message has been received, `hasNewMessage()`
-will return `true`.
 
-## Examples
+## More Examples
 
 There are more complex examples in the [examples directory](/MultidropBusProtocol/examples/).
 
 ## Fun Fact
-The direction of the daisy lines can be determined dynamically. The node will wait
+The direction of the daisy lines are determined dynamically. The node will wait
 to see which side becomes enabled and then assume that is the input daisy line.
 
 
