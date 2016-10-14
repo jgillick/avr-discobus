@@ -51,9 +51,9 @@ The `DiscobusDataUart` object is what is used to facilitate communication on the
 in this case over the standard Rx/Tx UART. Once this is created, `DiscobusMaster` and
 `DiscobusSlave` use it to receive, parse and send messages to each other.
 
-## Example Circuit
+## Multibus Circuit
 
-Here's an example of 3 nodes connected together on the bus
+Here's an example of 3 nodes connected together on one RS485 bus
 (this simplified diagram does not include power, clock crystals or decoupling caps).
 
 ![Simple Circuit](./examples/diagrams/circuit_simple.png)
